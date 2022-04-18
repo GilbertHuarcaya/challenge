@@ -47,7 +47,7 @@ const NewTask = (props: Props) => {
       const newTask: UpdateTask = {
         ...data,
         tags: tags,
-        status: "BACKLOG",
+        status: task.status || "BACKLOG",
         pointEstimate: points.toString(),
         dueDate: value,
         assigneeId: assignee?.id,
