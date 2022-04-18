@@ -1,0 +1,39 @@
+@import "../../../global-variables.scss";
+
+.task-card__options {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  position: absolute;
+  width: 138px;
+  height: 88px;
+
+  background: $neutral3;
+
+  border: 1px solid $neutral2;
+  box-sizing: border-box;
+  border-radius: 8px;
+  p {
+    color: $neutral1;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.btn__fill {
+  width: 100%;
+  height: 100%;
+  justify-content: left;
+  gap: 10px;
+  svg {
+    padding-left: 25px;
+  }
+}

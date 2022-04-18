@@ -1,0 +1,61 @@
+@import "../../../global-variables.scss";
+.modal__container {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  position: absolute;
+  width: auto;
+  height: auto;
+
+  background: $neutral3;
+
+  border: 1px solid $neutral2;
+  box-sizing: border-box;
+  border-radius: 8px;
+  p {
+    color: $neutral1;
+    padding-left: 10px;
+  }
+}
+
+.modal__container-hidden {
+  position: absolute;
+
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+
+  position: absolute;
+  width: auto;
+  height: auto;
+
+  background: $neutral3;
+
+  border: 1px solid $neutral2;
+  box-sizing: border-box;
+  border-radius: 8px;
+  p {
+    color: $neutral1;
+  }
+}
+
+.modal__ {
+  &assignee {
+    top: 45px;
+    left: 170px;
+    z-index: 1;
+  }
+  &label {
+    top: 45px;
+    right: 140px;
+    z-index: 1;
+  }
+  &estimate {
+    top: 45px;
+    left: 20px;
+    z-index: 1;
+  }
+}

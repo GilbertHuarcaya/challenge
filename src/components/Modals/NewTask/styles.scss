@@ -1,0 +1,64 @@
+@import "../../../global-variables.scss";
+.new-task__modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
+  z-index: 2;
+  width: 578px;
+  height: 184px;
+
+  /* neutral.3 */
+
+  background: $neutral3;
+  border-radius: 8px;
+
+  &__input-name {
+    /* Desktop/Body/XL/bold */
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: $BodyxL;
+    line-height: $BodyxL-LineHeight;
+    /* identical to box height, or 160% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: $BodyxL-Spacing;
+
+    /* neutral.2 */
+
+    color: $neutral2;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-radius: 16px;
+    outline: none;
+  }
+  &__selectors {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  &__btns {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+}
+
+.modal__bg {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: center;
+  width: 100vw;
+  z-index: 3;
+  height: 100vh;
+  background-color: $neutral5;
+}
