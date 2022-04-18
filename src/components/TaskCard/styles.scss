@@ -1,15 +1,13 @@
 @import "../../global-variables.scss";
 
 .task-card {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 15px;
 
   width: 310px;
-  min-height: 180px;
+  height: auto;
   padding: 15px;
   border-radius: 8px;
   background-color: $neutral4;
@@ -38,13 +36,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 32px;
+  min-height: 32px;
   position: relative;
 }
 
 .task-card__tags {
   display: flex;
   gap: 5px;
+  flex-wrap: wrap;
 }
 
 .task-card__asignee__logo-small {

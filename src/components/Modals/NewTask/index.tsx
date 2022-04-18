@@ -163,6 +163,7 @@ const NewTask = (props: Props) => {
             }></EstimatedModal>
           <LabelModal
             toggleLabelModal={toggleLabelModal}
+            currentTags={tags}
             setTags={
               setTags as React.Dispatch<React.SetStateAction<string[]>>
             }></LabelModal>

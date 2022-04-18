@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Label from "../ModalItem/Label";
 import { useSelector } from "react-redux";
 import { Task } from "../../../interfaces/task/types.d";
@@ -6,6 +6,7 @@ import { Task } from "../../../interfaces/task/types.d";
 type Props = {
   toggleLabelModal: boolean;
   setTags: React.Dispatch<React.SetStateAction<string[]>>;
+  currentTags: string[] | null;
 };
 
 type Store = {
@@ -13,7 +14,7 @@ type Store = {
 };
 
 const LabelModal = (props: Props) => {
-  const { toggleLabelModal, setTags } = props;
+  const { toggleLabelModal, setTags, currentTags } = props;
   const tasks = useSelector((store: Store) => store.tasks);
 
   const allTags = [
@@ -34,7 +35,11 @@ const LabelModal = (props: Props) => {
       hidden={toggleLabelModal}>
       <p>Task Title</p>
       {allTags.map((tag) => (
-        <Label label={tag} key={tag} setTags={setTags}></Label>
+        <Label
+          label={tag}
+          key={tag}
+          currentTags={currentTags}
+          setTags={setTags}></Label>
       ))}
     </div>
   );

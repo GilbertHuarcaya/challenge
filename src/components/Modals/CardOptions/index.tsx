@@ -34,7 +34,10 @@ const CardOptions = (props: CardOptionsProps) => {
       </button>
       <button
         className="btn__secondary-transparent btn__fill"
-        onClick={() => dispatch(deleteTask(task.id))}>
+        onClick={() => {
+          window.confirm("Are you sure?");
+          dispatch(deleteTask(task.id));
+        }}>
         <DeleteTaskIcon></DeleteTaskIcon>
         <p>Delete</p>
       </button>
