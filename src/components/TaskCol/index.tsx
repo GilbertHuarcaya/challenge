@@ -13,7 +13,7 @@ const TaskCol = (props: TaskColProps) => {
   return (
     <div className="task-card-col">
       <div className="task-card-col__title">
-        <input type="text" defaultValue={`${colName} (${tasks.length})`} />
+        <p>{`${colName} (${tasks.length})`}</p>
       </div>
       {tasks.length > 0
         ? tasks.map((task: Task) => <TaskCard key={task.id} task={task} />)

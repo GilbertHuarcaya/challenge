@@ -7,6 +7,7 @@ import TaskCol from "../TaskCol";
 import { Draggable } from "react-drag-reorder";
 import "./styles.scss";
 import { Store } from "../../interfaces/store/types.d";
+import Loader from "../Loader";
 
 const TasksContainer = () => {
   const dispatch = useDispatch();
@@ -45,34 +46,47 @@ const TasksContainer = () => {
   }, [query, tasks]);
 
   useEffect(() => {
-    const orderedTasksByStatus = allStatus.map((colName: string) =>
-      queryTasks.filter(
-        (task: Task) => colName === task.status.split("_").join(" ")
-      )
-    );
-    setOrderedTasks(orderedTasksByStatus);
+    if (query !== "") {
+      const orderedTasksByStatus = allStatus.map((colName: string) =>
+        queryTasks.filter(
+          (task: Task) => colName === task.status.split("_").join(" ")
+        )
+      );
+      setOrderedTasks(orderedTasksByStatus);
+    } else {
+      const orderedTasksByStatus = allStatus.map((colName: string) =>
+        tasks.filter(
+          (task: Task) => colName === task.status.split("_").join(" ")
+        )
+      );
+      setOrderedTasks(orderedTasksByStatus);
+    }
   }, [queryTasks, tasks]);
 
   return (
     <div className="task-card-container">
-      {orderedTasks
-        ? orderedTasks.map((TasksByStatus: Array<Task>, index) => {
-            if (TasksByStatus.length > 0) {
-              return (
-                <TaskCol
-                  colName={allStatus[index]
-                    .split(" ")
-                    .map(
-                      (word) =>
-                        word[0].toUpperCase() + word.substring(1).toLowerCase()
-                    )
-                    .join(" ")}
-                  key={allStatus[index]}
-                  tasks={TasksByStatus}></TaskCol>
-              );
-            }
-          })
-        : null}
+      {orderedTasks !== null && orderedTasks?.flat().length > 0 ? (
+        orderedTasks.map((TasksByStatus: Array<Task>, index) => {
+          if (TasksByStatus && TasksByStatus.length > 0) {
+            return (
+              <TaskCol
+                colName={allStatus[index]
+                  .split(" ")
+                  .map(
+                    (word) =>
+                      word[0].toUpperCase() + word.substring(1).toLowerCase()
+                  )
+                  .join(" ")}
+                key={allStatus[index]}
+                tasks={TasksByStatus}></TaskCol>
+            );
+          }
+        })
+      ) : (
+        <div className="task-card-container">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };
