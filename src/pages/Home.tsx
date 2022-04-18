@@ -17,6 +17,7 @@ function Home() {
   const dispatch = useDispatch();
   const users = useSelector((store: Store) => store.users);
   const tasks = useSelector((store: Store) => store.tasks);
+  const queryTasks = useSelector((store: Store) => store.app.queryTasks);
   const [toggleCreateModal, setToggleCreateModal] = useState<boolean>(true);
 
   useEffect(() => {
@@ -39,7 +40,13 @@ function Home() {
             <NewTaskBtn></NewTaskBtn>
           </button>
         </div>
-        <TasksContainer></TasksContainer>
+        {tasks.length > 0 ? (
+          <TasksContainer></TasksContainer>
+        ) :
+          <div className="task-card-container">
+            <Loader></Loader>
+          </div>
+        }
       </div>
       <NewTask
         toggle={toggleCreateModal}

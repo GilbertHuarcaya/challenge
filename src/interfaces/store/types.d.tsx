@@ -4,6 +4,7 @@ import { User } from "../user/types.d";
 interface AppStore {
   query: string;
   queryTasks: Array<Task>;
+  orderedTasks: Task[][];
 }
 
 export type Store = {

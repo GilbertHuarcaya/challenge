@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setNewQueryTasks } from "../../store/actions";
+import { setNewQueryTasks, setOrderedTasksByStatus } from "../../store/actions";
 import { Task } from "../../interfaces/task/types.d";
 import { User } from "../../interfaces/user/types.d";
 import TaskCol from "../TaskCol";
@@ -14,7 +14,7 @@ const TasksContainer = () => {
   const tasks = useSelector((store: Store) => store.tasks);
   const query = useSelector((store: Store) => store.app.query);
   const queryTasks = useSelector((store: Store) => store.app.queryTasks);
-  const [orderedTasks, setOrderedTasks] = useState<Task[][] | null>(null);
+  const orderedTasks = useSelector((store: Store) => store.app.orderedTasks);
 
   const allStatus = [
     ...new Set(tasks.map((task: Task) => task.status.split("_").join(" "))),
@@ -46,26 +46,17 @@ const TasksContainer = () => {
   }, [query, tasks]);
 
   useEffect(() => {
-    if (query !== "") {
-      const orderedTasksByStatus = allStatus.map((colName: string) =>
-        queryTasks.filter(
-          (task: Task) => colName === task.status.split("_").join(" ")
-        )
-      );
-      setOrderedTasks(orderedTasksByStatus);
-    } else {
-      const orderedTasksByStatus = allStatus.map((colName: string) =>
-        tasks.filter(
-          (task: Task) => colName === task.status.split("_").join(" ")
-        )
-      );
-      setOrderedTasks(orderedTasksByStatus);
-    }
-  }, [queryTasks, tasks]);
+    const orderedTasksByStatus = allStatus.map((colName: string) =>
+      queryTasks.filter(
+        (task: Task) => colName === task.status.split("_").join(" ")
+      )
+    );
+    dispatch(setOrderedTasksByStatus(orderedTasksByStatus));
+  }, [queryTasks]);
 
   return (
     <div className="task-card-container">
-      {orderedTasks !== null && orderedTasks?.flat().length > 0 ? (
+      {queryTasks.length > 0 && tasks.length > 0 ? (
         orderedTasks.map((TasksByStatus: Array<Task>, index) => {
           if (TasksByStatus && TasksByStatus.length > 0) {
             return (
@@ -83,9 +74,7 @@ const TasksContainer = () => {
           }
         })
       ) : (
-        <div className="task-card-container">
-          <Loader />
-        </div>
+        <p className="task-card-container__empty">NO RESULTS</p>
       )}
     </div>
   );

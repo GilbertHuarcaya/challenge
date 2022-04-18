@@ -1,9 +1,10 @@
 import { Task } from "../../interfaces/task/types.d";
-import { SET_QUERY_TASKS, NEW_QUERY } from "../types.d";
+import { SET_QUERY_TASKS, NEW_QUERY, SET_ORDERED_TASKS } from "../types.d";
 
 const initialState = {
   queryTasks: [],
   query: "",
+  orderedTasks: []
 };
 type ActionReducer =
   | {
@@ -13,10 +14,19 @@ type ActionReducer =
   | {
       type: "NEW_QUERY";
       payload: string;
+    }
+  | {
+      type: "SET_ORDERED_TASKS";
+      payload: Array<Task[]>;
     };
 
 export default (state = initialState, action: ActionReducer) => {
   switch (action.type) {
+    case SET_ORDERED_TASKS:
+      return {
+        ...state,
+        orderedTasks: action.payload,
+      };
     case SET_QUERY_TASKS:
       return {
         ...state,
