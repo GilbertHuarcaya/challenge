@@ -1,24 +1,18 @@
-import { useState } from 'react'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Home from "./pages/Home";
+import NotFoundPage from "./pages/NotFoundPage";
+import ErrorPage from "./pages/ErrorPage";
 
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello Vite + React</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-      </header>
-    </div>
-  )
-}
-
-export default App
+    <BrowserRouter>
+      <Routes>
+        <Route path="" element={<Home />} />
+        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/error" element={<ErrorPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+export default App;
