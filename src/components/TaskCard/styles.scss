@@ -1,0 +1,63 @@
+@import "../../global-variables.scss";
+
+.task-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 2px;
+  gap: 15px;
+
+  width: 310px;
+  min-height: 180px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: $neutral4;
+  &__name {
+    color: $neutral1;
+  }
+
+  &__points {
+    color: $neutral1;
+  }
+
+  &__info__icons {
+    p {
+      color: $neutral1;
+    }
+  }
+}
+.task-card p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.task-card__options {
+  height: 1rem;
+}
+.task-card__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  position: relative;
+}
+
+.task-card__tags {
+  display: flex;
+  gap: 5px;
+}
+
+.task-card__asignee__logo-small {
+  width: 30px;
+  height: 30px;
+}
+
+.task-card__info__icons {
+  display: flex;
+  gap: 6px;
+  div {
+    display: flex;
+    margin-left: 18px;
+    gap: 6px;
+  }
+}
