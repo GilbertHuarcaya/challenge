@@ -20,8 +20,10 @@ function Home() {
   const [toggleCreateModal, setToggleCreateModal] = useState<boolean>(true);
 
   useEffect(() => {
-    dispatch(getTasks());
-    dispatch(getUsers());
+    if (users.length < 1 && tasks.length < 1) {
+      dispatch(getTasks());
+      dispatch(getUsers());
+    }
   }, []);
 
   return (
@@ -37,13 +39,7 @@ function Home() {
             <NewTaskBtn></NewTaskBtn>
           </button>
         </div>
-        {tasks.length > 0 ? (
-          <TasksContainer></TasksContainer>
-        ) : (
-          <div className="task-card-container">
-            <Loader />
-          </div>
-        )}
+        <TasksContainer></TasksContainer>
       </div>
       <NewTask
         toggle={toggleCreateModal}

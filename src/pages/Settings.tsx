@@ -13,8 +13,9 @@ import { Store } from "../interfaces/store/types.d";
 const Settings = () => {
   const dispatch = useDispatch();
   const users = useSelector((store: Store) => store.users);
+  const tasks = useSelector((store: Store) => store.tasks);
   useEffect(() => {
-    if (users.length < 1) {
+    if (users.length < 1 && tasks.length < 1) {
       dispatch(getTasks());
       dispatch(getUsers());
     }
