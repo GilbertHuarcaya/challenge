@@ -36,7 +36,11 @@ const TasksContainer = () => {
                 })
                 .toLowerCase()
                 .includes(query.toLowerCase()) ||
-              task.pointEstimate.toLowerCase().includes(query.toLowerCase())
+              (task.pointEstimate + " Pts")
+                .toLowerCase()
+                .includes(query.toLowerCase()) ||
+              task.tags.includes(query.toUpperCase()) ||
+              task.status.toLowerCase().includes(query.toLowerCase())
           ) || tasks
         )
       );
