@@ -29,7 +29,7 @@ function Home() {
     <>
       <div className="home">
         <SideBar></SideBar>
-        <Navigation user={users[0]}></Navigation>
+        <Navigation user={users[3]}></Navigation>
         <div className="home__control__icons">
           <ToggleDesign></ToggleDesign>
           <button

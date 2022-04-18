@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Task } from "../../interfaces/task/types.d";
 import { User } from "../../interfaces/user/types.d";
 import TaskCol from "../TaskCol";
+import { Draggable } from "react-drag-reorder";
 import "./styles.scss";
 
 type Store = {
@@ -11,18 +12,9 @@ type Store = {
 };
 const TasksContainer = () => {
   const tasks = useSelector((store: Store) => store.tasks);
-  const users = useSelector((store: Store) => store.users);
 
   const allStatus = [
     ...new Set(tasks.map((task: Task) => task.status.split("_").join(" "))),
-  ];
-
-  const allTags = [
-    ...new Set(
-      tasks
-        .map((task: Task) => task.tags.map((tag) => tag.split("_").join(" ")))
-        .flat()
-    ),
   ];
 
   const orderedTasksByStatus = allStatus.map((colName: string) =>

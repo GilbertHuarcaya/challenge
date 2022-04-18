@@ -9,6 +9,7 @@ import "./styles.scss";
 import DueDateBtn from "../Buttons/Btns/DueDateBtn";
 import CardOptions from "../Modals/CardOptions";
 import NewTask from "../Modals/NewTask";
+import avatar from "../../images/png/avatar.png";
 
 type TaskCardProps = {
   task: Task;
@@ -63,7 +64,7 @@ const TaskCard = (props: TaskCardProps) => {
       <div className="task-card__row">
         <img
           className="avatar__logo-small"
-          src={task.assignee.avatar}
+          src={task.assignee.avatar ? task.assignee.avatar : avatar}
           alt="asigneeLogo"
         />
         <div className="task-card__info__icons">

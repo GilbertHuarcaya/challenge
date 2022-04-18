@@ -5,7 +5,7 @@
   align-items: flex-end;
   justify-content: space-between;
   padding: 16px;
-  z-index: 2;
+  z-index: 3;
   width: 578px;
   height: 184px;
 
@@ -51,12 +51,12 @@
 }
 
 .modal__bg {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   top: 0;
-  left: center;
+  left: 0;
   width: 100vw;
   z-index: 3;
   height: 100vh;

@@ -1,5 +1,6 @@
 import React from "react";
 import { User } from "../../../interfaces/user/types.d";
+import avatar from "../../../images/png/avatar.png";
 import "./styles.scss";
 
 type Props = {
@@ -15,7 +16,7 @@ const Assignee = (props: Props) => {
       onClick={() => setAssignee(assignee)}>
       <img
         className="avatar__logo-small"
-        src={assignee.avatar}
+        src={assignee.avatar ? assignee.avatar : avatar}
         alt="userAvatar"
       />
       <p>{assignee.fullName}</p>
