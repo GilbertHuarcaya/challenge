@@ -1,0 +1,37 @@
+@import "../../global-variables.scss";
+.tag {
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  border-radius: 4px;
+
+  &-green {
+    background: #{$secondary4}1a;
+
+    color: $secondary4;
+  }
+
+  &-yellow {
+    background: #{$tertiary4}1a;
+
+    color: $tertiary4;
+  }
+
+  &-red {
+    background: #{$primary4}1a;
+
+    color: $primary4;
+  }
+
+  &-white {
+    background: #{$neutral2}1a;
+
+    color: $neutral1;
+  }
+
+  &-blue {
+    background: #{$cuatertiary4}1a;
+
+    color: $cuatertiary4;
+  }
+}
