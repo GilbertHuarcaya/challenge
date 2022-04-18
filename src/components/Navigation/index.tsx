@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { User } from "../../interfaces/user/types.d";
 import DeleteInputIcon from "../Buttons/IconsBtn/DeleteInputIcon";
 import NotificationIcon from "../Buttons/IconsBtn/NotificationIcon";
 import SearchIcon from "../Buttons/IconsBtn/SearchIcon";
+import { setNewQuery } from "../../store/actions";
+
 import "./styles.scss";
 import avatar from "../../images/png/avatar.png";
+import { useDispatch, useSelector } from "react-redux";
+import { Store } from "../../interfaces/store/types.d";
 
 type NavProps = {
   user: User;
 };
 
 function Navigation(props: NavProps) {
+  const dispatch = useDispatch();
+  const query = useSelector((store: Store) => store.app.query);
   const { user } = props;
 
   return (
@@ -20,9 +26,17 @@ function Navigation(props: NavProps) {
         <input
           className="nav__search__input"
           type="text"
+          value={query}
           placeholder="Search"
+          onChange={(event) =>
+            dispatch(setNewQuery(event.target.value as string))
+          }
         />
-        <DeleteInputIcon></DeleteInputIcon>
+        <button
+          className="btn__secondary-transparent"
+          onClick={() => dispatch(setNewQuery(""))}>
+          <DeleteInputIcon></DeleteInputIcon>
+        </button>
       </div>
       <NotificationIcon></NotificationIcon>
       {user ? (
