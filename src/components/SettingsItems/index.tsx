@@ -14,7 +14,7 @@ const SettingsItems = () => {
     <div className="task-card-container">
       {users
         ? users.map((user: User, index) => (
-            <div className="task-card-container__settings">
+            <div className="task-card-container__settings" key={user.id}>
               <h2>User No.{index}</h2>
               <img
                 className="nav__userLogo avatar__logo-medium"
