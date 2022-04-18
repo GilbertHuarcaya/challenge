@@ -13,6 +13,13 @@ import LabelModal from "../NewTaskItems/LabelModal";
 import { createTask, updateTask } from "../../../store/actions/index";
 import { useDispatch } from "react-redux";
 import { CreateTask, Task, UpdateTask } from "../../../interfaces/task/types.d";
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  SelectChangeEvent,
+} from "@mui/material";
 
 type Props = {
   toggle: boolean;
@@ -30,6 +37,7 @@ const NewTask = (props: Props) => {
   const [tags, setTags] = useState<Array<string> | null>(null);
   const [assignee, setAssignee] = useState<User | null>(null);
   const [points, setPoints] = useState<number | null>(null);
+  const [status, setStatus] = useState("BACKLOG");
 
   useEffect(() => {
     if (task) {
@@ -37,37 +45,36 @@ const NewTask = (props: Props) => {
       setTags(task.tags);
       setAssignee(task.assignee);
       setPoints(Number(task.pointEstimate));
+      setStatus(task.status);
     }
   }, []);
 
   const createNewTask = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target as HTMLFormElement));
+    // update or modify task
     if (tags && points !== null && value && assignee && task) {
       const newTask: UpdateTask = {
         ...data,
         tags: tags,
-        status: task.status || "BACKLOG",
+        status: status,
         pointEstimate: points.toString(),
         dueDate: value,
         assigneeId: assignee?.id,
       };
       dispatch(updateTask(task.id, newTask));
       setToggleCreateModal(true);
-      setValue(null);
-      setTags(null);
-      setAssignee(null);
-      setPoints(null);
       setToggleEstimatedModal(true);
       setToggleAssigneeModal(true);
       setToggleLabelModal(true);
       (e.target as HTMLFormElement).reset();
     }
+    // create task
     if (tags && points !== null && value && assignee && !task) {
       const newTask: CreateTask = {
         ...data,
         tags: tags,
-        status: "BACKLOG",
+        status: status,
         pointEstimate: points.toString(),
         dueDate: value,
         assigneeId: assignee?.id,
@@ -78,23 +85,46 @@ const NewTask = (props: Props) => {
       setTags(null);
       setAssignee(null);
       setPoints(null);
+      setStatus("BACKLOG");
       setToggleEstimatedModal(true);
       setToggleAssigneeModal(true);
       setToggleLabelModal(true);
       (e.target as HTMLFormElement).reset();
     }
   };
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setStatus(event.target.value as string);
+  };
+
   return (
     <div className={toggle ? "" : "modal__bg"} hidden={toggle}>
       <form className={`new-task__modal`} onSubmit={createNewTask}>
-        <input
-          placeholder={task ? task.name : "Task Title"}
-          defaultValue={task ? task.name : ""}
-          className="new-task__modal__input-name"
-          name="name"
-          required
-          type="text"
-        />
+        <div className="new-task__modal__task-info">
+          <input
+            placeholder={task ? task.name : "Task Title"}
+            defaultValue={task ? task.name : ""}
+            className="new-task__modal__input-name"
+            name="name"
+            required
+            type="text"
+          />
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Status</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={status}
+              label="Status"
+              onChange={handleChange}>
+              <MenuItem value={"BACKLOG"}>Backlog</MenuItem>
+              <MenuItem value={"TODO"}>Todo</MenuItem>
+              <MenuItem value={"DONE"}>Done</MenuItem>
+              <MenuItem value={"CANCELLED"}>Cancelled</MenuItem>
+              <MenuItem value={"IN_PROGRESS"}>In Progress</MenuItem>
+            </Select>
+          </FormControl>
+        </div>
         <div className="new-task__modal__selectors">
           <button
             type="button"

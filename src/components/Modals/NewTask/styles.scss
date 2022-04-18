@@ -36,6 +36,13 @@
     border-radius: 16px;
     outline: none;
   }
+  &__task-info {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
   &__selectors {
     display: flex;
     position: relative;
