@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import DashboardIcon from "../Buttons/IconsBtn/DashboardIcon";
 import ListIcon from "../Buttons/IconsBtn/ListIcon";
 import "./styles.scss";
@@ -26,7 +27,14 @@ const SideBarItem = (props: SideBarProps) => {
           active={item === "MY TASK" && false}
           border={false}></ListIcon>
       ) : null}
-      <p className="side-bar-item__item">{item} </p>
+      {item !== "MY TASK" && item !== "DASHBOARD"? (
+        <ListIcon
+          active={item === "MY TASK" && false}
+          border={false}></ListIcon>
+      ) : null}
+      <Link to={item === "DASHBOARD" ? "/" : `/${item}`}>
+        <p className="side-bar-item__item">{item} </p>
+      </Link>
     </div>
   );
 };

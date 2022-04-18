@@ -3,7 +3,7 @@ import LogoIcon from "../Buttons/IconsBtn/LogoIcon";
 import SideBarItem from "../SideBarItem";
 import "./styles.scss";
 
-const SideBarItems: Array<string> = ["DASHBOARD", "MY TASK"];
+const SideBarItems: Array<string> = ["DASHBOARD", "MY TASK", 'SETTINGS'];
 
 const SideBar = () => {
   return (
