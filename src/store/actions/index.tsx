@@ -6,7 +6,10 @@ import {
   DELETE_TASK,
   FETCH_ALL_USERS,
   CREATE_USER,
+  NEW_QUERY,
+  SET_QUERY_TASKS,
 } from "../types.d";
+
 import { CreateTask, Task, UpdateTask } from "../../interfaces/task/types.d";
 import { User } from "../../interfaces/user/types.d";
 
@@ -89,3 +92,20 @@ export const createUser = (User: User) => async (dispatch: Dispatch) => {
     console.log((error as Error).message);
   }
 };
+
+export const setNewQuery = (query: string) => async (dispatch: Dispatch) => {
+  try {
+    dispatch({ type: NEW_QUERY, payload: query });
+  } catch (error) {
+    console.log((error as Error).message);
+  }
+};
+
+export const setNewQueryTasks =
+  (tasks: Array<Task>) => async (dispatch: Dispatch) => {
+    try {
+      dispatch({ type: SET_QUERY_TASKS, payload: tasks });
+    } catch (error) {
+      console.log((error as Error).message);
+    }
+  };
