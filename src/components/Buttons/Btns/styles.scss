@@ -1,0 +1,266 @@
+@import "../../../global-variables.scss";
+
+//AVATAR
+.avatar__logo-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.avatar__logo-medium {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.avatar__logo-big {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.toggle-icons {
+  display: flex;
+  align-items: center;
+}
+.due-date__btn {
+  display: flex;
+  background-color: rgba(148, 151, 154, 0.1);
+  padding: 6px 15px 6px 15px;
+  gap: 6px;
+  p {
+    color: $neutral1;
+  }
+}
+.active {
+  border: solid 1px $primary4;
+  padding: 10px 10px 7px 10px;
+  border-radius: 8px;
+}
+.unactive {
+  border: solid 1px transparent;
+  padding: 10px 10px 7px 10px;
+  border-radius: 8px;
+}
+
+.warning {
+  background: rgba(218, 88, 75, 0.1);
+  border-radius: 4px;
+  p {
+    color: $primary4;
+  }
+}
+
+.btn__primary {
+  background-color: $primary4;
+  border: solid 0px transparent;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 8px 8px 8px 8px;
+  border-radius: 8px;
+  p {
+    color: $neutral1;
+    margin: 0;
+  }
+  &:hover {
+    display: flex;
+    border: solid 0px transparent;
+    cursor: pointer;
+    align-items: center;
+    padding: 8px 8px 8px 8px;
+    background: $primary2;
+    border-radius: 8px;
+    p {
+      color: $neutral1;
+    }
+  }
+  &:focus {
+    display: flex;
+    border: solid 0px transparent;
+    cursor: pointer;
+    align-items: center;
+    padding: 8px 8px 8px 8px;
+    background: $primary3;
+    border-radius: 8px;
+    p {
+      color: $neutral1;
+    }
+  }
+  &:disabled {
+    background-color: $primary1;
+    border: solid 0px transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px 8px 8px 8px;
+    border-radius: 8px;
+    p {
+      color: $neutral2;
+    }
+  }
+}
+
+.btn__secondary {
+  background-color: $neutral5;
+  border: solid 0px transparent;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 8px 8px 8px 8px;
+  border-radius: 8px;
+  p {
+    color: $neutral1;
+    margin: 0;
+  }
+  &:hover {
+    display: flex;
+    border: solid 0px transparent;
+    cursor: pointer;
+    align-items: center;
+    padding: 8px 8px 8px 8px;
+    background: $neutral2;
+    border-radius: 8px;
+    p {
+      color: $neutral1;
+    }
+  }
+  &:focus {
+    display: flex;
+    border: solid 0px transparent;
+    cursor: pointer;
+    align-items: center;
+    padding: 8px 8px 8px 8px;
+    background: $neutral3;
+    border-radius: 8px;
+    p {
+      color: $neutral1;
+    }
+  }
+  &:disabled {
+    background-color: $neutral5;
+    border: solid 0px transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px 8px 8px 8px;
+    border-radius: 8px;
+    p {
+      color: $neutral2;
+    }
+  }
+}
+
+.btn__secondary-transparent {
+  background-color: transparent;
+  border: solid 0px transparent;
+  display: flex;
+  align-items: center;
+  padding: 8px 8px 8px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  p {
+    color: $neutral1;
+    margin: 0;
+  }
+  &:hover {
+    display: flex;
+    border: solid 0px transparent;
+    cursor: pointer;
+    align-items: center;
+    padding: 8px 8px 8px 8px;
+    background: $neutral2;
+    border-radius: 8px;
+    p {
+      color: $neutral1;
+    }
+  }
+  &:focus {
+    display: flex;
+    border: solid 0px transparent;
+    cursor: pointer;
+    align-items: center;
+    padding: 8px 8px 8px 8px;
+    background: $neutral3;
+    border-radius: 8px;
+    p {
+      color: $neutral1;
+    }
+  }
+  &:disabled {
+    background-color: $neutral5;
+    border: solid 0px transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px 8px 8px 8px;
+    border-radius: 8px;
+    p {
+      color: $neutral2;
+    }
+  }
+}
+
+.form__input__btn {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 4px 16px;
+  gap: 10px;
+  width: auto;
+  height: 24px;
+
+  background: #{$neutral2}1a;
+  border-radius: 4px;
+
+  /* Inside auto layout */
+  p {
+    color: $neutral1;
+  }
+}
+
+.form__input__btn__date-picker__calendar {
+  color: $neutral1;
+  position: relative;
+  padding-left: 0px;
+  input {
+    background-color: transparent;
+    border: solid 0px transparent;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    border-radius: 8px;
+    padding: 2px;
+    width: 1px;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.MuiCalendarPicker-root {
+  background-color: $neutral3;
+  color: $neutral1;
+}
+.MuiTypography-caption,
+.MuiSvgIcon-root,
+.MuiSvgIcon-fontSizeMedium {
+  color: $neutral1;
+}
+.MuiPickersDay-dayWithMargin {
+  background-color: $neutral3;
+  color: $neutral1;
+}
+
+.new__task__btn {
+  font-size: $BodyxL;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  /* primary.4 */
+
+  background: $primary4;
+  border-radius: 8px;
+}
