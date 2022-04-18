@@ -5,7 +5,6 @@ import {
   UPDATE_USER,
   DELETE_USER,
 } from "../types.d";
-import sample from "../../../sample.json";
 
 type ActionReducer = {
   type:
