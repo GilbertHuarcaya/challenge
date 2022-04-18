@@ -42,7 +42,7 @@ const TasksContainer = () => {
     } else {
       dispatch(setNewQueryTasks(tasks));
     }
-  }, [query]);
+  }, [query, tasks]);
 
   useEffect(() => {
     const orderedTasksByStatus = allStatus.map((colName: string) =>
@@ -51,7 +51,7 @@ const TasksContainer = () => {
       )
     );
     setOrderedTasks(orderedTasksByStatus);
-  }, [queryTasks]);
+  }, [queryTasks, tasks]);
 
   return (
     <div className="task-card-container">
