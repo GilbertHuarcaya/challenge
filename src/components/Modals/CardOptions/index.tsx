@@ -16,12 +16,7 @@ const CardOptions = (props: CardOptionsProps) => {
   const dispatch = useDispatch();
   const { task, hidden } = props;
   const [toggleCreateModal, setToggleCreateModal] = useState<boolean>(true);
-  const EditTask = (e: any) => {
-    console.log("editar");
-  };
-  const DeleteTask = (e: any) => {
-    console.log("borrar");
-  };
+
   return (
     <div
       className={`task-card__options ${hidden ? "hidden" : null}`}
