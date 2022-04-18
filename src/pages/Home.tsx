@@ -11,11 +11,14 @@ import ToggleDesign from "../components/Buttons/Btns/ToggleDesignBtns";
 import NewTaskBtn from "../components/Buttons/Btns/NewTaskBtn";
 import NewTask from "../components/Modals/NewTask";
 import { Store } from "../interfaces/store/types.d";
+import Loader from "../components/Loader";
 
 function Home() {
   const dispatch = useDispatch();
   const users = useSelector((store: Store) => store.users);
+  const tasks = useSelector((store: Store) => store.tasks);
   const [toggleCreateModal, setToggleCreateModal] = useState<boolean>(true);
+
   useEffect(() => {
     dispatch(getTasks());
     dispatch(getUsers());
@@ -34,7 +37,13 @@ function Home() {
             <NewTaskBtn></NewTaskBtn>
           </button>
         </div>
-        <TasksContainer></TasksContainer>
+        {tasks.length > 0 ? (
+          <TasksContainer></TasksContainer>
+        ) : (
+          <div className="task-card-container">
+            <Loader />
+          </div>
+        )}
       </div>
       <NewTask
         toggle={toggleCreateModal}
