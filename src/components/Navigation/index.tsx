@@ -33,8 +33,13 @@ function Navigation(props: NavProps) {
           }
         />
         <button
-          className="btn__secondary-transparent"
-          onClick={() => dispatch(setNewQuery(""))}>
+          className={
+            query.length === 0
+              ? "btn__secondary-transparent-hidden"
+              : "btn__secondary-transparent"
+          }
+          onClick={() => dispatch(setNewQuery(""))}
+          hidden={query.length === 0}>
           <DeleteInputIcon></DeleteInputIcon>
         </button>
       </div>
