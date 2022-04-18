@@ -1,0 +1,25 @@
+@import "../../global-variables.scss";
+.task-card-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.task-card-col__title {
+  width: 340px;
+  display: flex;
+  align-items: flex-start;
+
+  & input {
+    background-color: transparent;
+    border: none;
+    border-radius: 16px;
+    color: $neutral1;
+    outline: none;
+    width: fit-content;
+  }
+  & p {
+    color: $neutral1;
+    margin: 0;
+  }
+}
