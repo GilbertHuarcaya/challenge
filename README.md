@@ -6,6 +6,8 @@ I used Vite because of the fast reload to show changes on screen, also used Type
 
 <img src='./src/images/png/challenge1.png'></img>
 
+[LIVE DEMO](https://challenge-crud.vercel.app/)
+
 ## Technologies
 Vite
 React
