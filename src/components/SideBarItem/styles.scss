@@ -1,0 +1,25 @@
+@import "../../global-variables.scss";
+.side-bar-item {
+  display: flex;
+  align-items: center;
+  width: 219px;
+  padding: 0 0 0 10px;
+}
+.side-bar-item__item {
+  margin: 0 0 0 10px;
+  color: $neutral1;
+  font-size: 15px;
+}
+
+.item-active {
+  p {
+    color: $primary4;
+  }
+  margin-right: 2px;
+  border-right: solid 4px $primary4;
+  background: linear-gradient(
+    90deg,
+    rgba(186, 37, 37, 0) 0%,
+    #{$primary4}1a 100%
+  );
+}
