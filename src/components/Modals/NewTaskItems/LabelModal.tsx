@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Label from "../ModalItem/Label";
 import { useSelector } from "react-redux";
 import { Task } from "../../../interfaces/task/types.d";
+import { Store } from "../../../interfaces/store/types.d";
 
 type Props = {
   toggleLabelModal: boolean;
@@ -9,9 +10,6 @@ type Props = {
   currentTags: string[] | null;
 };
 
-type Store = {
-  tasks: Array<Task>;
-};
 
 const LabelModal = (props: Props) => {
   const { toggleLabelModal, setTags, currentTags } = props;

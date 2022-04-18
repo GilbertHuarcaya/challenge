@@ -12,6 +12,8 @@ import { User } from "../../interfaces/user/types.d";
 
 import { taskServices } from "../../services";
 import { userServices } from "../../services";
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate();
 
 type FetchUser = {
   data: User;
@@ -36,6 +38,7 @@ export const getTasks = () => async (dispatch: Dispatch) => {
     dispatch({ type: FETCH_ALL_TASKS, payload: data });
   } catch (error) {
     console.log((error as Error).message);
+    navigate("/error");
   }
 };
 
@@ -46,6 +49,7 @@ export const createTask = (task: CreateTask) => async (dispatch: Dispatch) => {
     dispatch({ type: CREATE_TASK, payload: data });
   } catch (error) {
     console.log((error as Error).message);
+    navigate("/error");
   }
 };
 
@@ -57,6 +61,7 @@ export const updateTask =
       dispatch({ type: UPDATE_TASK, payload: data });
     } catch (error) {
       console.log((error as Error).message);
+      navigate("/error");
     }
   };
 
@@ -67,6 +72,7 @@ export const deleteTask = (id: string) => async (dispatch: Dispatch) => {
     dispatch({ type: DELETE_TASK, payload: id });
   } catch (error) {
     console.log((error as Error).message);
+    navigate("/error");
   }
 };
 
@@ -77,6 +83,7 @@ export const getUsers = () => async (dispatch: Dispatch) => {
     dispatch({ type: FETCH_ALL_USERS, payload: data });
   } catch (error) {
     console.log((error as Error).message);
+    navigate("/error");
   }
 };
 
@@ -87,5 +94,6 @@ export const createUser = (User: User) => async (dispatch: Dispatch) => {
     dispatch({ type: CREATE_USER, payload: data });
   } catch (error) {
     console.log((error as Error).message);
+    navigate("/error");
   }
 };

@@ -3,10 +3,8 @@ import { useSelector } from "react-redux";
 import { User } from "../../../interfaces/user/types.d";
 import Assignee from "../ModalItem/Assignee";
 import "./styles.scss";
+import { Store } from "../../../interfaces/store/types.d";
 
-type Store = {
-  users: Array<User>;
-};
 type Props = {
   toggleAssigneeModal: boolean;
   setAssignee: React.Dispatch<React.SetStateAction<User>>;
@@ -18,7 +16,9 @@ const AssigneeModal = (props: Props) => {
   return (
     <div
       className={
-        toggleAssigneeModal ? "modal__container-hidden" : "modal__container modal__assignee"
+        toggleAssigneeModal
+          ? "modal__container-hidden"
+          : "modal__container modal__assignee"
       }
       hidden={toggleAssigneeModal}>
       <p>Assign To</p>

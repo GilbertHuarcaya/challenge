@@ -5,11 +5,8 @@ import { User } from "../../interfaces/user/types.d";
 import TaskCol from "../TaskCol";
 import { Draggable } from "react-drag-reorder";
 import "./styles.scss";
+import { Store } from "../../interfaces/store/types.d";
 
-type Store = {
-  tasks: Array<Task>;
-  users: Array<User>;
-};
 const TasksContainer = () => {
   const tasks = useSelector((store: Store) => store.tasks);
 

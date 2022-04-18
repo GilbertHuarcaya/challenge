@@ -8,9 +8,7 @@ import SideBar from "../components/SideBar";
 import TasksContainer from "../components/TasksContainer";
 import { User } from "../interfaces/user/types.d";
 import { getTasks, getUsers } from "../store/actions";
-type Store = {
-  users: Array<User>;
-};
+import { Store } from "../interfaces/store/types.d";
 
 const Settings = () => {
   const dispatch = useDispatch();
@@ -25,8 +23,7 @@ const Settings = () => {
   return (
     <div className="home">
       <SideBar></SideBar>
-      <div className="home__control__icons">
-      </div>
+      <div className="home__control__icons"></div>
       <SettingsItems></SettingsItems>
     </div>
   );

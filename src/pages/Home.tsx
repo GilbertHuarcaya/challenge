@@ -10,11 +10,7 @@ import Navigation from "../components/Navigation";
 import ToggleDesign from "../components/Buttons/Btns/ToggleDesignBtns";
 import NewTaskBtn from "../components/Buttons/Btns/NewTaskBtn";
 import NewTask from "../components/Modals/NewTask";
-
-type Store = {
-  tasks: Array<Task>;
-  users: Array<User>;
-};
+import { Store } from "../interfaces/store/types.d";
 
 function Home() {
   const dispatch = useDispatch();
