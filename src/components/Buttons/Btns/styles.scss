@@ -235,21 +235,45 @@
   color: $neutral1;
   position: relative;
   padding-left: 0px;
+  background-color: #94979a1a;
   input {
-    background-color: transparent;
+    z-index: 999;
     border: solid 0px transparent;
     display: flex;
     align-items: center;
     margin: 0;
     border-radius: 8px;
-    padding: 2px;
-    width: 1px;
+    color: white;
+    width: 80px;
+    background-image: url("../../../images/icons/dueDate.svg");
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 40px;
+    &:focus {
+      padding-left: 0px;
+      background-image: url("../../../images/icons/dueDate.svg");
+      background-repeat: no-repeat;
+      background-position: left;
+      padding-left: 30px;
+    }
   }
   p {
-    margin: 0;
+    display: none;
+  }
+  .date-picker__icon {
+    position: absolute;
+    left: 10px;
+    z-index: 0;
   }
 }
-
+.PrivatePickersToolbar-root {
+  background-color: $neutral3;
+  color: $neutral1;
+}
+.MuiDialogActions-root {
+  background-color: $neutral3;
+  color: $neutral1;
+}
 .MuiCalendarPicker-root {
   background-color: $neutral3;
   color: $neutral1;
@@ -275,4 +299,65 @@
 
   background: $primary4;
   border-radius: 8px;
+}
+
+.date-picker__icon {
+  display: flex;
+}
+.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+  display: none;
+}
+
+@media screen and (min-width: 790px) {
+  .form__input__btn__date-picker__calendar {
+    height: 24px;
+    color: $neutral1;
+    background-color: transparent;
+    position: relative;
+    padding-left: 0px;
+    align-items: center;
+    display: flex;
+    width: 125px;
+    padding: 4px 0px;
+    height: 24px;
+    background: #{$neutral2}1a;
+    border-radius: 4px;
+    input {
+      background-color: transparent;
+      border: solid 0px transparent;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      border-radius: 4px;
+      padding: 2px;
+      width: 1px;
+      z-index: -1;
+      &:hover {
+        padding: 2px;
+      }
+      &:focus {
+        padding: 2px;
+      }
+    }
+    p {
+      display: flex;
+      margin: 0;
+      margin-left: 30px;
+    }
+  }
+  .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+    width: 125px;
+    height: 32px;
+    background-color: transparent;
+    border: solid 0px transparent;
+    border-radius: 8px;
+    justify-content: left;
+    position: absolute;
+    left: 0;
+    display: flex;
+    border-radius: 4px;
+    &:hover {
+      background-color: #{$neutral2}9a;
+    }
+  }
 }

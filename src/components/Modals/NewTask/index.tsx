@@ -20,6 +20,7 @@ import {
   MenuItem,
   SelectChangeEvent,
 } from "@mui/material";
+import DatePickerIcon from "../../Buttons/IconsBtn/DatePickerIcon";
 
 type Props = {
   toggle: boolean;
@@ -133,7 +134,7 @@ const NewTask = (props: Props) => {
               setToggleAssigneeModal(true);
               setToggleLabelModal(true);
             }}
-            className="btn__secondary-transparent">
+            className="btn__secondary-transparent no-padding">
             <EstimateBtn points={points}></EstimateBtn>
           </button>
           <button
@@ -143,7 +144,7 @@ const NewTask = (props: Props) => {
               setToggleEstimatedModal(true);
               setToggleLabelModal(true);
             }}
-            className="btn__secondary-transparent">
+            className="btn__secondary-transparent no-padding">
             <AssigneeBtn assignee={assignee}></AssigneeBtn>
           </button>
 
@@ -154,27 +155,26 @@ const NewTask = (props: Props) => {
               setToggleEstimatedModal(true);
               setToggleAssigneeModal(true);
             }}
-            className="btn__secondary-transparent">
+            className="btn__secondary-transparent no-padding">
             <LabelBtn tags={tags}></LabelBtn>
           </button>
 
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
-              label="Custom input"
+              label="Due Date"
               value={value}
               onChange={(newValue) => {
                 setValue(newValue);
               }}
               renderInput={({ inputRef, inputProps, InputProps }) => (
-                <div className="btn__secondary-transparent form__input__btn form__input__btn__date-picker__calendar">
+                <div className="form__input__btn__date-picker__calendar">
                   {InputProps?.endAdornment}
                   <p>{value ? value.toLocaleDateString() : "Due Date"}</p>
                   <input
+                    className="btn__secondary-transparent"
                     placeholder={"Due Date"}
-                    name="date"
                     ref={inputRef}
                     {...inputProps}
-                    disabled
                     hidden></input>
                 </div>
               )}
