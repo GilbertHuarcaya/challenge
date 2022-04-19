@@ -1,4 +1,5 @@
 @import "../../global-variables.scss";
+
 .nav {
   display: flex;
   align-items: center;
@@ -15,6 +16,7 @@
   padding-left: 25px;
   padding-right: 25px;
   flex-grow: 1;
+  order: 2;
 
   &__input {
     width: 100%;
@@ -27,7 +29,56 @@
     padding-right: 25px;
   }
 }
-
+.search__icon {
+  order: 3;
+}
 .nav__userLogo {
+  margin-left: 0px;
+  order: 1;
+}
+.notification__icon {
   margin-left: 25px;
+  order: 4;
+}
+
+@media screen and (min-width: 790px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: $neutral4;
+    border-radius: 16px;
+    padding: 0 25px 0 25px;
+  }
+
+  .nav__search {
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    flex-grow: 1;
+    order: 2;
+
+    &__input {
+      width: 100%;
+      height: 60px;
+      background-color: transparent;
+      border: none;
+      border-radius: 16px;
+      color: $neutral1;
+      outline: none;
+      padding-right: 25px;
+    }
+  }
+  .search__icon {
+    order: 1;
+  }
+  .nav__userLogo {
+    margin-left: 25px;
+    order: 4;
+  }
+  .notification__icon {
+    order: 3;
+  }
 }

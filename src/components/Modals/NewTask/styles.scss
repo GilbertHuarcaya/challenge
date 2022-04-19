@@ -2,12 +2,13 @@
 .new-task__modal {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 30px 16px;
   z-index: 3;
-  width: 578px;
-  height: 184px;
+  width: 92%;
+  height: 96%;
+  gap: 30px;
 
   /* neutral.3 */
 
@@ -42,18 +43,24 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    order: 2;
   }
   &__selectors {
     display: flex;
+    flex-direction: column;
     position: relative;
-    align-items: center;
+    align-items: left;
     justify-content: space-evenly;
     width: 100%;
+    order: 3;
+    gap: 10px;
   }
   &__btns {
     display: flex;
     gap: 10px;
-    justify-content: flex-end;
+    order: 1;
+    justify-content: space-between;
+    width: 100%;
   }
 }
 
@@ -72,4 +79,85 @@
 
 .no-padding {
   padding: 0 !important;
+}
+
+@media screen and (min-width: 760px) {
+  .new-task__modal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 16px;
+    z-index: 3;
+    width: 578px;
+    height: 184px;
+
+    /* neutral.3 */
+
+    background: $neutral3;
+    border-radius: 8px;
+
+    &__input-name {
+      /* Desktop/Body/XL/bold */
+
+      font-style: normal;
+      font-weight: 600;
+      font-size: $BodyxL;
+      line-height: $BodyxL-LineHeight;
+      /* identical to box height, or 160% */
+
+      display: flex;
+      align-items: center;
+      letter-spacing: $BodyxL-Spacing;
+
+      /* neutral.2 */
+
+      color: $neutral2;
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      border-radius: 16px;
+      outline: none;
+    }
+    &__task-info {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      order: 1;
+    }
+    &__selectors {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      order: 2;
+    }
+    &__btns {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      order: 3;
+    }
+  }
+
+  .modal__bg {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 3;
+    height: 100vh;
+    background-color: $neutral5;
+  }
+
+  .no-padding {
+    padding: 0 !important;
+  }
 }

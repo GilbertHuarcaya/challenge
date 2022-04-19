@@ -3,6 +3,7 @@ import React from "react";
 const NotificationIcon = () => {
   return (
     <svg
+      className="notification__icon"
       width="20"
       height="21"
       viewBox="0 0 20 21"

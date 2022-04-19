@@ -53,7 +53,7 @@
   background-color: $primary4;
   border: solid 0px transparent;
   cursor: pointer;
-  width: 100%;
+  width: auto;
   display: flex;
   align-items: center;
   padding: 8px 8px 8px 8px;
@@ -219,7 +219,7 @@
   align-items: center;
   padding: 4px 16px;
   gap: 10px;
-  width: auto;
+  width: 100%;
   height: 24px;
 
   background: #{$neutral2}1a;
@@ -234,27 +234,32 @@
 .form__input__btn__date-picker__calendar {
   color: $neutral1;
   position: relative;
-  padding-left: 0px;
-  background-color: #94979a1a;
+  display: flex;
+  padding-left: 0;
+  background: #{$neutral2}1a;
+  border-radius: 4px;
+  margin: 0;
+
   input {
-    z-index: 999;
+    z-index: 1;
     border: solid 0px transparent;
     display: flex;
     align-items: center;
     margin: 0;
-    border-radius: 8px;
+    border-radius: 4px;
     color: white;
-    width: 80px;
+    flex-grow: 1;
+    width: 100px;
     background-image: url("../../../images/icons/dueDate.svg");
     background-repeat: no-repeat;
-    background-position: 10px center;
+    background-position: 15px;
     padding-left: 40px;
     &:focus {
       padding-left: 0px;
       background-image: url("../../../images/icons/dueDate.svg");
       background-repeat: no-repeat;
-      background-position: left;
-      padding-left: 30px;
+      background-position: 15px;
+      padding-left: 40px;
     }
   }
   p {
@@ -286,6 +291,17 @@
 .MuiPickersDay-dayWithMargin {
   background-color: $neutral3;
   color: $neutral1;
+}
+.css-1ngni0z {
+  background-color: $neutral3;
+  color: $neutral1;
+}
+.css-ctu4nj {
+  background-color: $primary4;
+  color: $neutral1;
+  span {
+    color: white;
+  }
 }
 
 .new__task__btn {
@@ -332,6 +348,9 @@
       padding: 2px;
       width: 1px;
       z-index: -1;
+      background-image: none;
+      flex-grow: 0;
+
       &:hover {
         padding: 2px;
       }
@@ -359,5 +378,27 @@
     &:hover {
       background-color: #{$neutral2}9a;
     }
+  }
+
+  .form__input__btn {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 4px 16px;
+    gap: 10px;
+    width: auto;
+    height: 24px;
+
+    background: #{$neutral2}1a;
+    border-radius: 4px;
+
+    /* Inside auto layout */
+    p {
+      color: $neutral1;
+    }
+  }
+  .css-ctu4nj {
+    background-color: $neutral3;
+    color: $neutral1;
   }
 }
