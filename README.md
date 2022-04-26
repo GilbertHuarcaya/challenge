@@ -1,4 +1,5 @@
 # Crud Challenge
+[![Deployment Pipeline](https://github.com/GilbertHuarcaya/challenge/actions/workflows/pipeline.yml/badge.svg)](https://github.com/GilbertHuarcaya/challenge/actions/workflows/pipeline.yml)
 
 This app consists in create, update, delete, and read tasks and users from an API
 
