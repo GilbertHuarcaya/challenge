@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Dispatch } from "redux";
 import {
   FETCH_ALL_TASKS,
@@ -14,8 +15,7 @@ import {
 import { CreateTask, Task, UpdateTask } from "../../interfaces/task/types.d";
 import { User } from "../../interfaces/user/types.d";
 
-import { taskServices } from "../../services";
-import { userServices } from "../../services";
+import { taskServices, userServices } from "../../services";
 
 type FetchUser = {
   data: User;
@@ -53,16 +53,15 @@ export const createTask = (task: CreateTask) => async (dispatch: Dispatch) => {
   }
 };
 
-export const updateTask =
-  (id: string, task: UpdateTask) => async (dispatch: Dispatch) => {
-    try {
-      const { data }: FetchTask = await taskServices.updateTask(id, task);
+export const updateTask = (id: string, task: UpdateTask) => async (dispatch: Dispatch) => {
+  try {
+    const { data }: FetchTask = await taskServices.updateTask(id, task);
 
-      dispatch({ type: UPDATE_TASK, payload: data });
-    } catch (error) {
-      console.log((error as Error).message);
-    }
-  };
+    dispatch({ type: UPDATE_TASK, payload: data });
+  } catch (error) {
+    console.log((error as Error).message);
+  }
+};
 
 export const deleteTask = (id: string) => async (dispatch: Dispatch) => {
   try {
@@ -84,9 +83,9 @@ export const getUsers = () => async (dispatch: Dispatch) => {
   }
 };
 
-export const createUser = (User: User) => async (dispatch: Dispatch) => {
+export const createUser = (Person: User) => async (dispatch: Dispatch) => {
   try {
-    const { data }: FetchUser = await userServices.createUser(User);
+    const { data }: FetchUser = await userServices.createUser(Person);
 
     dispatch({ type: CREATE_USER, payload: data });
   } catch (error) {
@@ -102,20 +101,18 @@ export const setNewQuery = (query: string) => async (dispatch: Dispatch) => {
   }
 };
 
-export const setNewQueryTasks =
-  (tasks: Array<Task>) => async (dispatch: Dispatch) => {
-    try {
-      dispatch({ type: SET_QUERY_TASKS, payload: tasks });
-    } catch (error) {
-      console.log((error as Error).message);
-    }
-  };
+export const setNewQueryTasks = (tasks: Array<Task>) => async (dispatch: Dispatch) => {
+  try {
+    dispatch({ type: SET_QUERY_TASKS, payload: tasks });
+  } catch (error) {
+    console.log((error as Error).message);
+  }
+};
 
-export const setOrderedTasksByStatus =
-  (tasks: Array<Task[]>) => async (dispatch: Dispatch) => {
-    try {
-      dispatch({ type: SET_ORDERED_TASKS, payload: tasks });
-    } catch (error) {
-      console.log((error as Error).message);
-    }
-  };
+export const setOrderedTasksByStatus = (tasks: Array<Task[]>) => async (dispatch: Dispatch) => {
+  try {
+    dispatch({ type: SET_ORDERED_TASKS, payload: tasks });
+  } catch (error) {
+    console.log((error as Error).message);
+  }
+};

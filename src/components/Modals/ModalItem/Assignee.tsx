@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
 import { User } from "../../../interfaces/user/types.d";
 import avatar from "../../../images/png/avatar.png";
@@ -13,7 +14,10 @@ const Assignee = (props: Props) => {
   return (
     <div
       className="modal__item btn__secondary-transparent"
-      onClick={() => setAssignee(assignee)}>
+      role="button"
+      tabIndex={0}
+      onClick={() => setAssignee(assignee)}
+    >
       <img
         className="avatar__logo-small"
         src={assignee.avatar ? assignee.avatar : avatar}

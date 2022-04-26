@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Task } from "../../../interfaces/task/types.d";
@@ -20,26 +21,32 @@ const CardOptions = (props: CardOptionsProps) => {
   return (
     <div
       className={`task-card__options ${hidden ? "hidden" : null}`}
-      hidden={hidden}>
+      hidden={hidden}
+    >
       <button
+        type="button"
         className="btn__secondary-transparent btn__fill"
-        onClick={() => setToggleCreateModal(!toggleCreateModal)}>
-        <EditTaskIcon></EditTaskIcon>
+        onClick={() => setToggleCreateModal(!toggleCreateModal)}
+      >
+        <EditTaskIcon />
         <p>Edit</p>
       </button>
       <button
         className="btn__secondary-transparent btn__fill"
+        type="button"
         onClick={() => {
           window.confirm("Are you sure?");
           dispatch(deleteTask(task.id));
-        }}>
-        <DeleteTaskIcon></DeleteTaskIcon>
+        }}
+      >
+        <DeleteTaskIcon />
         <p>Delete</p>
       </button>
       <NewTask
         toggle={toggleCreateModal}
         setToggleCreateModal={setToggleCreateModal}
-        task={task}></NewTask>
+        task={task}
+      />
     </div>
   );
 };

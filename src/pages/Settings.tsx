@@ -1,12 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import NewTaskBtn from "../components/Buttons/Btns/NewTaskBtn";
-import ToggleDesign from "../components/Buttons/Btns/ToggleDesignBtns";
-import Navigation from "../components/Navigation";
 import SettingsItems from "../components/SettingsItems";
 import SideBar from "../components/SideBar";
-import TasksContainer from "../components/TasksContainer";
-import { User } from "../interfaces/user/types.d";
 import { getTasks, getUsers } from "../store/actions";
 import { Store } from "../interfaces/store/types.d";
 
@@ -19,13 +15,13 @@ const Settings = () => {
       dispatch(getTasks());
       dispatch(getUsers());
     }
-  }, []);
+  }, [tasks]);
 
   return (
     <div className="home">
-      <SideBar></SideBar>
-      <div className="home__control__icons"></div>
-      <SettingsItems></SettingsItems>
+      <SideBar />
+      <div className="home__control__icons" />
+      <SettingsItems />
     </div>
   );
 };

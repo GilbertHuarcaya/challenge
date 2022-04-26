@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { Task } from "../../interfaces/task/types.d";
 import {
   FETCH_ALL_TASKS,
@@ -25,9 +26,7 @@ export default (tasks = [], action: ActionReducer) => {
     case CREATE_TASK:
       return [...tasks, action.payload];
     case UPDATE_TASK:
-      return tasks.map((task: Task) =>
-        task.id === action.payload.id ? action.payload : task
-      );
+      return tasks.map((task: Task) => (task.id === action.payload.id ? action.payload : task));
     case DELETE_TASK:
       return tasks.filter((task: Task) => task.id !== action.payload);
     default:

@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from "react";
 import checked from "../../../images/png/checked.png";
 import unchecked from "../../../images/png/unchecked.png";
@@ -15,20 +18,19 @@ const Tag = (props: Props) => {
     if (currentTags) {
       setActiveTag(
         currentTags?.filter(
-          (tag: string) =>
-            tag.split(" ").join("_") === label.split(" ").join("_")
-        )
+          (tag: string) => tag.split(" ").join("_") === label.split(" ").join("_"),
+        ),
       );
     }
-  }, [currentTags]);
+  }, [currentTags, label]);
 
-  const addDeleteTags = (currentTags: string[], label: string) => {
+  const addDeleteTags = (activeTags: string[], activeLabel: string) => {
     if (activeTag.length > 0) {
-      return currentTags.filter(
-        (tag: string) => tag.split(" ").join("_") !== label.split(" ").join("_")
+      return activeTags.filter(
+        (tag: string) => tag.split(" ").join("_") !== activeLabel.split(" ").join("_"),
       );
     }
-    return [...currentTags, label.split(" ").join("_")];
+    return [...activeTags, activeLabel.split(" ").join("_")];
   };
 
   return (
@@ -36,22 +38,24 @@ const Tag = (props: Props) => {
       {currentTags ? (
         <div
           className="modal__item btn__secondary-transparent"
-          onClick={() => setTags(addDeleteTags(currentTags, label))}>
+          onClick={() => setTags(addDeleteTags(currentTags, label))}
+        >
           {activeTag.length > 0 ? (
-            <img src={checked}></img>
+            <img src={checked} alt="checked" />
           ) : (
-            <img src={unchecked}></img>
+            <img src={unchecked} alt="unchecked" />
           )}
           <p>{label}</p>
         </div>
       ) : (
         <div
           className="modal__item btn__secondary-transparent"
-          onClick={() => setTags([label.split(" ").join("_")])}>
+          onClick={() => setTags([label.split(" ").join("_")])}
+        >
           {activeTag.length > 0 ? (
-            <img src={checked}></img>
+            <img src={checked} alt="checked" />
           ) : (
-            <img src={unchecked}></img>
+            <img src={unchecked} alt="unchecked" />
           )}
           <p>{label}</p>
         </div>

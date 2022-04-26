@@ -4,14 +4,11 @@
   grid-template-rows: repeat(3, auto);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-  padding: 0px;
+  padding: 0px 10px;
 }
 
 .nav {
   grid-area: 1 / 1 / 2 / 5;
-}
-.side-bar {
-  display: none;
 }
 
 .home__control__icons {

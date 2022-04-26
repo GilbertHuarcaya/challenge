@@ -6,7 +6,6 @@ import "./styles.scss";
 
 type SideBarProps = {
   item: string;
-  key: number;
 };
 
 const SideBarItem = (props: SideBarProps) => {
@@ -16,24 +15,31 @@ const SideBarItem = (props: SideBarProps) => {
     <div
       className={`side-bar-item ${
         item === "DASHBOARD" && true ? "item-active" : null
-      }`}>
+      }`}
+    >
       {item === "DASHBOARD" ? (
         <DashboardIcon
           active={item === "DASHBOARD" && true}
-          border={false}></DashboardIcon>
+          border={false}
+        />
       ) : null}
       {item === "MY TASK" ? (
         <ListIcon
           active={item === "MY TASK" && false}
-          border={false}></ListIcon>
+          border={false}
+        />
       ) : null}
-      {item !== "MY TASK" && item !== "DASHBOARD"? (
+      {item !== "MY TASK" && item !== "DASHBOARD" ? (
         <ListIcon
           active={item === "MY TASK" && false}
-          border={false}></ListIcon>
+          border={false}
+        />
       ) : null}
       <Link to={item === "DASHBOARD" ? "/" : `/${item}`}>
-        <p className="side-bar-item__item">{item} </p>
+        <p className="side-bar-item__item">
+          {item}
+          {" "}
+        </p>
       </Link>
     </div>
   );

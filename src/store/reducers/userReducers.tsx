@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { User } from "../../interfaces/user/types.d";
 import {
   FETCH_ALL_USERS,
@@ -25,9 +26,7 @@ export default (users = [], action: ActionReducer) => {
     case CREATE_USER:
       return [...users, action.payload];
     case UPDATE_USER:
-      return users.map((user: User) =>
-        user.id === action.payload.id ? action.payload : user
-      );
+      return users.map((user: User) => (user.id === action.payload.id ? action.payload : user));
     case DELETE_USER:
       return users.filter((user: User) => user.id !== action.payload.id);
     default:

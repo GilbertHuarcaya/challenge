@@ -16,10 +16,11 @@ const EstimatedModal = (props: Props) => {
           ? "modal__container-hidden "
           : "modal__container modal__estimate"
       }
-      hidden={toggleEstimatedModal}>
+      hidden={toggleEstimatedModal}
+    >
       <p>Estimate</p>
       {points.map((point) => (
-        <Point estimated={point} key={point} setPoints={setPoints}></Point>
+        <Point estimated={point} key={point} setPoints={setPoints} />
       ))}
     </div>
   );

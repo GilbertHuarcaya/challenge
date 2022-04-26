@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setNewQueryTasks, setOrderedTasksByStatus } from "../../store/actions";
 import { Task } from "../../interfaces/task/types.d";
-import { User } from "../../interfaces/user/types.d";
 import TaskCol from "../TaskCol";
-import { Draggable } from "react-drag-reorder";
 import "./styles.scss";
 import { Store } from "../../interfaces/store/types.d";
-import Loader from "../Loader";
 
 const TasksContainer = () => {
   const dispatch = useDispatch();
@@ -25,24 +23,23 @@ const TasksContainer = () => {
       dispatch(
         setNewQueryTasks(
           tasks.filter(
-            (task) =>
-              task.name.toLowerCase().includes(query.toLowerCase()) ||
-              task.assignee.fullName
+            (task) => task.name.toLowerCase().includes(query.toLowerCase())
+              || task.assignee.fullName
                 .toLowerCase()
-                .includes(query.toLowerCase()) ||
-              new Date(task.dueDate)
+                .includes(query.toLowerCase())
+              || new Date(task.dueDate)
                 .toLocaleDateString("en-GB", {
                   dateStyle: "long",
                 })
                 .toLowerCase()
-                .includes(query.toLowerCase()) ||
-              (task.pointEstimate + " Pts")
+                .includes(query.toLowerCase())
+              || (`${task.pointEstimate} Pts`)
                 .toLowerCase()
-                .includes(query.toLowerCase()) ||
-              task.tags.includes(query.toUpperCase()) ||
-              task.status.toLowerCase().includes(query.toLowerCase())
-          ) || tasks
-        )
+                .includes(query.toLowerCase())
+              || task.tags.includes(query.toUpperCase())
+              || task.status.toLowerCase().includes(query.toLowerCase()),
+          ) || tasks,
+        ),
       );
     } else {
       dispatch(setNewQueryTasks(tasks));
@@ -50,11 +47,9 @@ const TasksContainer = () => {
   }, [query, tasks]);
 
   useEffect(() => {
-    const orderedTasksByStatus = allStatus.map((colName: string) =>
-      queryTasks.filter(
-        (task: Task) => colName === task.status.split("_").join(" ")
-      )
-    );
+    const orderedTasksByStatus = allStatus.map((colName: string) => queryTasks.filter(
+      (task: Task) => colName === task.status.split("_").join(" "),
+    ));
     dispatch(setOrderedTasksByStatus(orderedTasksByStatus));
   }, [queryTasks]);
 
@@ -68,14 +63,15 @@ const TasksContainer = () => {
                 colName={allStatus[index]
                   .split(" ")
                   .map(
-                    (word) =>
-                      word[0].toUpperCase() + word.substring(1).toLowerCase()
+                    (word) => word[0].toUpperCase() + word.substring(1).toLowerCase(),
                   )
                   .join(" ")}
                 key={allStatus[index]}
-                tasks={TasksByStatus}></TaskCol>
+                tasks={TasksByStatus}
+              />
             );
           }
+          return null;
         })
       ) : (
         <p className="task-card-container__empty">NO RESULTS</p>

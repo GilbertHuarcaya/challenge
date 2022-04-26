@@ -1,10 +1,11 @@
+/* eslint-disable default-param-last */
 import { Task } from "../../interfaces/task/types.d";
 import { SET_QUERY_TASKS, NEW_QUERY, SET_ORDERED_TASKS } from "../types.d";
 
 const initialState = {
   queryTasks: [],
   query: "",
-  orderedTasks: []
+  orderedTasks: [],
 };
 type ActionReducer =
   | {

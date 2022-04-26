@@ -8,7 +8,6 @@ import MessageIcon from "../../images/icons/message.svg";
 import "./styles.scss";
 import DueDateBtn from "../Buttons/Btns/DueDateBtn";
 import CardOptions from "../Modals/CardOptions";
-import NewTask from "../Modals/NewTask";
 import avatar from "../../images/png/avatar.png";
 
 type TaskCardProps = {
@@ -20,22 +19,23 @@ const TaskCard = (props: TaskCardProps) => {
 
   const { task } = props;
 
-  let day: string = "";
+  let day = "";
   if (
     new Date().toLocaleDateString("en-GB", {
       dateStyle: "long",
-    }) ===
-    new Date(task.dueDate).toLocaleDateString("en-GB", {
+    })
+    === new Date(task.dueDate).toLocaleDateString("en-GB", {
       dateStyle: "long",
     })
   ) {
     day = "TODAY";
   } else if (new Date() > new Date(task.dueDate)) {
     day = "YESTERDAY";
-  } else
+  } else {
     day = new Date(task.dueDate).toLocaleDateString("en-GB", {
       dateStyle: "long",
     });
+  }
 
   const OpenOptions = () => {
     setOptionsHidden(!optionsHidden);
@@ -45,19 +45,23 @@ const TaskCard = (props: TaskCardProps) => {
     <div className="task-card">
       <div className="task-card__row">
         <p className="task-card__name">{task.name}</p>
-        <button className="btn__secondary-transparent" onClick={OpenOptions}>
-          <OptionsIcon></OptionsIcon>
+        <button type="button" className="btn__secondary-transparent" onClick={OpenOptions}>
+          <OptionsIcon />
         </button>
-        <CardOptions task={task} hidden={optionsHidden}></CardOptions>
+        <CardOptions task={task} hidden={optionsHidden} />
       </div>
       <div className="task-card__row">
-        <p className="task-card__points">{task.pointEstimate} Pts</p>
-        <DueDateBtn dueDate={day}></DueDateBtn>
+        <p className="task-card__points">
+          {task.pointEstimate}
+          {" "}
+          Pts
+        </p>
+        <DueDateBtn dueDate={day} />
       </div>
       <div className="task-card__row">
         <div className="task-card__tags">
           {task.tags.map((tag: string) => (
-            <Tag tagName={tag} key={tag + task.id}></Tag>
+            <Tag tagName={tag} key={tag + task.id} />
           ))}
         </div>
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
@@ -31,7 +32,7 @@ const Tag = (props: TagProps) => {
         setColor(colors[4]);
         break;
     }
-  }, []);
+  }, [tagName]);
 
   return <p className={`tag tag-${color}`}>{tagName.split("_").join(" ")}</p>;
 };

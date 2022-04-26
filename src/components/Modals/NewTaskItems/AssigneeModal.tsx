@@ -20,13 +20,15 @@ const AssigneeModal = (props: Props) => {
           ? "modal__container-hidden"
           : "modal__container modal__assignee"
       }
-      hidden={toggleAssigneeModal}>
+      hidden={toggleAssigneeModal}
+    >
       <p>Assign To</p>
       {users.map((user) => (
         <Assignee
           assignee={user}
           key={user.id}
-          setAssignee={setAssignee}></Assignee>
+          setAssignee={setAssignee}
+        />
       ))}
     </div>
   );
