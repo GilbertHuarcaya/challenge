@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start-test": "NODE_ENV=test dev",
+    "start-test": "NODE_ENV=test vite",
     "eslint": "eslint './**/*.{ts,tsx}'",
     "test:e2e": "npx cypress run"
   },
