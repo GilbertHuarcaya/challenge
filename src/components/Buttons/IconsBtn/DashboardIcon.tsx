@@ -1,4 +1,8 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleTasksDisplay } from "../../../store/actions";
 
 type Props = {
   active: boolean;
@@ -6,8 +10,12 @@ type Props = {
 };
 const DashboardIcon = (props: Props) => {
   const { active, border } = props;
+  const dispatch = useDispatch();
+  const toggle = () => {
+    dispatch(toggleTasksDisplay("dashboard"));
+  };
   return (
-    <div className={border ? "active" : "unactive"}>
+    <div className={border ? "active" : "unactive"} onClick={toggle}>
       <svg
         width="18"
         height="18"

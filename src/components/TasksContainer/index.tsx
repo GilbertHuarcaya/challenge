@@ -13,6 +13,7 @@ const TasksContainer = () => {
   const query = useSelector((store: Store) => store.app.query);
   const queryTasks = useSelector((store: Store) => store.app.queryTasks);
   const orderedTasks = useSelector((store: Store) => store.app.orderedTasks);
+  const display = useSelector((store: Store) => store.app.toggleTasksDisplay);
 
   const allStatus = [
     ...new Set(tasks.map((task: Task) => task.status.split("_").join(" "))),
@@ -54,7 +55,16 @@ const TasksContainer = () => {
   }, [queryTasks]);
 
   return (
-    <div className="task-card-container">
+    <div className={display === "dashboard" ? "task-card-container" : "task-card-container__list"}>
+      {display === "list" ? (
+        <div className="task-card-container__table-titles">
+          <p># Task Name</p>
+          <p>Task Tags</p>
+          <p>Estimate</p>
+          <p>Task Assing Name</p>
+          <p>Due Date</p>
+        </div>
+      ) : null }
       {queryTasks.length > 0 && tasks.length > 0 ? (
         orderedTasks.map((TasksByStatus: Array<Task>, index) => {
           if (TasksByStatus && TasksByStatus.length > 0) {

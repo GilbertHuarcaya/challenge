@@ -4,22 +4,83 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
-}
-.task-card-col__title {
-  width: 340px;
-  display: flex;
-  align-items: flex-start;
 
-  & input {
-    background-color: transparent;
-    border: none;
-    border-radius: 16px;
-    color: $neutral1;
-    outline: none;
-    width: fit-content;
+  &__title {
+    width: 340px;
+    display: flex;
+    align-items: flex-start;
+
+    & input {
+      background-color: transparent;
+      border: none;
+      border-radius: 16px;
+      color: $neutral1;
+      outline: none;
+      width: fit-content;
+    }
+    & p {
+      color: $neutral1;
+      margin: 0;
+    }
   }
-  & p {
-    color: $neutral1;
-    margin: 0;
+}
+
+.task-card-col__list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-width: 960px;
+  width: 100%;
+
+  &__title {
+    width: 97%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 15px;
+    background-color: $neutral4;
+    border: 1px solid #393d41;
+    border-radius: 4px;
+    height: 56px;
+
+    & input {
+      background-color: transparent;
+      border: none;
+      border-radius: 16px;
+      color: $neutral1;
+      outline: none;
+      width: fit-content;
+    }
+    & p {
+      color: $neutral1;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .task-card-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    &__title {
+      width: 340px;
+      display: flex;
+      align-items: flex-start;
+
+      & input {
+        background-color: transparent;
+        border: none;
+        border-radius: 16px;
+        color: $neutral1;
+        outline: none;
+        width: fit-content;
+      }
+      & p {
+        color: $neutral1;
+        margin: 0;
+      }
+    }
   }
 }

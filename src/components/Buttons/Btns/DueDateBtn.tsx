@@ -1,11 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Store } from "../../../interfaces/store/types.d";
 
 type Props = {
   dueDate: string;
 };
 const DueDateBtn = (props: Props) => {
   const { dueDate } = props;
-
+  const display = useSelector((store: Store) => store.app.toggleTasksDisplay);
   let formatedDate: string[] | string = "";
 
   if (dueDate !== "TODAY" && dueDate !== "YESTERDAY") {
@@ -16,7 +18,7 @@ const DueDateBtn = (props: Props) => {
 
   return (
     <div
-      className={`due-date__btn ${dueDate === "YESTERDAY" ? "warning" : null}`}
+      className={display === "dashboard" ? `due-date__btn ${dueDate === "YESTERDAY" ? "warning" : null}` : `due-date__list__btn ${dueDate === "YESTERDAY" ? "warning__list" : null}`}
     >
       <svg
         width="22"
@@ -30,7 +32,7 @@ const DueDateBtn = (props: Props) => {
           fill={dueDate === "YESTERDAY" ? "#DA584B" : "white"}
         />
       </svg>
-      <p>{formatedDate}</p>
+      <p>{display === "dashboard" ? formatedDate : formatedDate[0].toUpperCase() + formatedDate.substring(1).toLowerCase()}</p>
     </div>
   );
 };

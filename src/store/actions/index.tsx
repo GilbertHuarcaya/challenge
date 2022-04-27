@@ -10,6 +10,7 @@ import {
   NEW_QUERY,
   SET_QUERY_TASKS,
   SET_ORDERED_TASKS,
+  TOGGLE_TASKS_DISPLAY,
 } from "../types.d";
 
 import { CreateTask, Task, UpdateTask } from "../../interfaces/task/types.d";
@@ -112,6 +113,14 @@ export const setNewQueryTasks = (tasks: Array<Task>) => async (dispatch: Dispatc
 export const setOrderedTasksByStatus = (tasks: Array<Task[]>) => async (dispatch: Dispatch) => {
   try {
     dispatch({ type: SET_ORDERED_TASKS, payload: tasks });
+  } catch (error) {
+    console.log((error as Error).message);
+  }
+};
+
+export const toggleTasksDisplay = (display: string) => async (dispatch: Dispatch) => {
+  try {
+    dispatch({ type: TOGGLE_TASKS_DISPLAY, payload: display });
   } catch (error) {
     console.log((error as Error).message);
   }

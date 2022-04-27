@@ -5,6 +5,7 @@ interface AppStore {
   query: string;
   queryTasks: Array<Task>;
   orderedTasks: Task[][];
+  toggleTasksDisplay: string
 }
 
 export type Store = {

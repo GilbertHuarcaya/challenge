@@ -30,6 +30,17 @@
     color: $neutral1;
   }
 }
+
+.due-date__list__btn {
+  display: flex;
+  svg {
+    display: none;
+  }
+  p {
+    color: $neutral1;
+  }
+}
+
 .active {
   border: solid 1px $primary4;
   padding: 10px 10px 7px 10px;
@@ -44,6 +55,19 @@
 .warning {
   background: rgba(218, 88, 75, 0.1);
   border-radius: 4px;
+  p {
+    color: $primary4;
+  }
+}
+
+.warning {
+  background: rgba(218, 88, 75, 0.1);
+  border-radius: 4px;
+  p {
+    color: $primary4;
+  }
+}
+.warning__list {
   p {
     color: $primary4;
   }

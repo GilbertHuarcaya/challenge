@@ -29,7 +29,7 @@ const Tag = (props: TagProps) => {
         setColor(colors[4]);
         break;
       default:
-        setColor(colors[4]);
+        setColor(colors[3]);
         break;
     }
   }, [tagName]);

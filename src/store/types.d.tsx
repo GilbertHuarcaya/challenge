@@ -16,3 +16,4 @@ export const LIKE_USER = "LIKE_USER";
 export const NEW_QUERY = "NEW_QUERY";
 export const SET_QUERY_TASKS = "SET_QUERY_TASKS";
 export const SET_ORDERED_TASKS = "SET_ORDERED_TASKS";
+export const TOGGLE_TASKS_DISPLAY = "TOGGLE_TASKS_DISPLAY";
