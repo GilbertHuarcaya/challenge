@@ -42,7 +42,7 @@ const TaskCol = (props: TaskColProps) => {
               </svg>
               <p>{`${colName} (${tasks.length})`}</p>
             </div>
-            <div hidden={hiddenTasks}>
+            <div className="task-card-col__list__tasks" hidden={hiddenTasks}>
               {tasks.length > 0
                 ? tasks.map((task: Task) => <TaskCard key={task.id} task={task} />)
                 : null}

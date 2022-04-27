@@ -101,7 +101,7 @@
   &__row5 {
     grid-area: 1 / 5 / 2 / 6;
     width: 111px;
-    border-right: none;
+    border: none !important;
   }
 
   &__name {
